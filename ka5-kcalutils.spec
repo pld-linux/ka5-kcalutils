@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kcalutils
 Summary:	kcalutils
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	7ba99e6876d58da121a24bdbc58c9834
+# Source0-md5:	40757929da20d10c80ef3861dc80323c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -77,8 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/grantlee/5.2/kcalendar_grantlee_plugin.so
-%attr(755,root,root) %ghost %{_libdir}/libKF5CalendarUtils.so.5
-%attr(755,root,root) %{_libdir}/libKF5CalendarUtils.so.5.*.*
+%ghost %{_libdir}/libKF5CalendarUtils.so.5
+%attr(755,root,root) %{_libdir}/libKF5CalendarUtils.so.*.*.*
 %{_datadir}/qlogging-categories5/kcalutils.categories
 %{_datadir}/qlogging-categories5/kcalutils.renamecategories
 
@@ -87,5 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/KCalUtils
 %{_includedir}/KF5/kcalutils_version.h
 %{_libdir}/cmake/KF5CalendarUtils
-%attr(755,root,root) %{_libdir}/libKF5CalendarUtils.so
+%{_libdir}/libKF5CalendarUtils.so
 %{_libdir}/qt5/mkspecs/modules/qt_KCalUtils.pri
