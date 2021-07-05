@@ -38,6 +38,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Library providing utility functions for the handling of calendar data.
 
+%description -l pl.UTF-8
+Biblioteka dostarczająca funkcje do obsługi kalendarza.
+
 %package devel
 Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
