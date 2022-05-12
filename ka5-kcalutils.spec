@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.0
+%define		kdeappsver	22.04.1
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kcalutils
 Summary:	kcalutils
 Name:		ka5-%{kaname}
-Version:	22.04.0
+Version:	22.04.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	77b21ffbe88e95f36f80e4b926570c97
+# Source0-md5:	77ce449113b2641549ecd31dc49c58cc
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -92,7 +92,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libKF5CalendarUtils.so.*.*.*
 %{_datadir}/qlogging-categories5/kcalutils.categories
 %{_datadir}/qlogging-categories5/kcalutils.renamecategories
-%attr(755,root,root) %{_libdir}/KTextTemplate/kcalendar_grantlee_plugin.so
+# Qt5
+%attr(755,root,root) %{_libdir}/grantlee/5.2/kcalendar_grantlee_plugin.so
+# Qt6
+#%attr(755,root,root) %{_libdir}/KTextTemplate/kcalendar_grantlee_plugin.so
 
 %files devel
 %defattr(644,root,root,755)
