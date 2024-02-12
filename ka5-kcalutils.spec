@@ -1,37 +1,37 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kcalutils
 Summary:	kcalutils
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	6097450ad8d9fa5fc657e83ea62b8199
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	bd66242ed0a68745e31d3efe2b84746e
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel
-BuildRequires:	Qt5Test-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Test-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
-BuildRequires:	grantlee-qt5-devel >= 5.3
+BuildRequires:	grantlee-qt6-devel >= 5.3
 BuildRequires:	ka5-kidentitymanagement-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf5-kcalendarcore-devel >= %{kframever}
-BuildRequires:	kf5-kcodecs-devel >= %{kframever}
-BuildRequires:	kf5-kconfig-devel >= %{kframever}
-BuildRequires:	kf5-kconfigwidgets-devel >= %{kframever}
-BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf5-ki18n-devel >= %{kframever}
-BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
-BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-kcalendarcore-devel >= %{kframever}
+BuildRequires:	kf6-kcodecs-devel >= %{kframever}
+BuildRequires:	kf6-kconfig-devel >= %{kframever}
+BuildRequires:	kf6-kconfigwidgets-devel >= %{kframever}
+BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf6-ki18n-devel >= %{kframever}
+BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -86,18 +86,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%{_datadir}/qlogging-categories5/kcalutils.categories
-%{_datadir}/qlogging-categories5/kcalutils.renamecategories
-%ghost %{_libdir}/libKPim5CalendarUtils.so.5
-%attr(755,root,root) %{_libdir}/libKPim5CalendarUtils.so.*.*.*
-# Qt5
-%attr(755,root,root) %{_libdir}/grantlee/5.3/kcalendar_grantlee_plugin.so
-# Qt6
-#%attr(755,root,root) %{_libdir}/KTextTemplate/kcalendar_grantlee_plugin.so
+%attr(755,root,root) %{_libdir}/libKPim6CalendarUtils.so.*.*
+%ghost %{_libdir}/libKPim6CalendarUtils.so.6
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/ktexttemplate/kcalendar_grantlee_plugin.so
+%{_datadir}/qlogging-categories6/kcalutils.categories
+%{_datadir}/qlogging-categories6/kcalutils.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/qt5/mkspecs/modules/qt_KCalUtils.pri
-%{_includedir}/KPim5/KCalUtils
-%{_libdir}/cmake/KPim5CalendarUtils
-%{_libdir}/libKPim5CalendarUtils.so
+%{_includedir}/KPim6/KCalUtils
+%{_libdir}/cmake/KPim6CalendarUtils
+%{_libdir}/libKPim6CalendarUtils.so
